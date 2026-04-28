@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/SplashScene.unity
+    guid: 20b8979d3c6a5874a9a83f923c904934
+  - enabled: 1
     path: Assets/Scenes/BootstrapScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
@@ -20,5 +23,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChallengeOverlay.unity
     guid: 9af68364d1a152441b590c59c2d0930b
+  - enabled: 1
+    path: Assets/Scenes/OfflineModeScene.unity
+    guid: 4bbdb56dfadb22045b9982d427ab6d3c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
