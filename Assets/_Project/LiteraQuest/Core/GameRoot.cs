@@ -19,6 +19,7 @@ public sealed class GameRoot : MonoBehaviour
     public JsonSerializerService JsonSerializer { get; private set; }
     public ApiClient ApiClient { get; private set; }
     public AuthService AuthService { get; private set; }
+    public BootstrapService BootstrapService { get; private set; }
 
     private void Awake()
     {
@@ -79,6 +80,7 @@ public sealed class GameRoot : MonoBehaviour
         {
             ApiClient = new ApiClient(apiConfig, TokenStore, JsonSerializer);
             AuthService = new AuthService(ApiClient, TokenStore);
+            BootstrapService = new BootstrapService(ApiClient);
         }
     }
 }

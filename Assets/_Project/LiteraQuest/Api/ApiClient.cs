@@ -90,6 +90,13 @@ public sealed class ApiClient
 
         if (request.result != UnityWebRequest.Result.Success)
         {
+            Debug.LogError(
+       $"API request failed\n" +
+       $"URL: {request.url}\n" +
+       $"Status: {request.responseCode}\n" +
+       $"Result: {request.result}\n" +
+       $"Response: {responseText}"
+   );
             string errorMessage = ParseErrorMessage(responseText);
             return ApiResult<TResponse>.Failure(errorMessage, request.responseCode);
         }

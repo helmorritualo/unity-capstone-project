@@ -12,6 +12,9 @@ public sealed class BootstrapService
 
     public IEnumerator LoadBootstrap(Action<ApiResult<BootstrapResponse>> callback)
     {
-        yield return apiClient.Get<BootstrapResponse>("/student/bootstrap", callback);
+        yield return apiClient.Get<BootstrapResponse>(
+            ApiEndpoint.StudentBootstrap,
+            callback
+        );
     }
 }
