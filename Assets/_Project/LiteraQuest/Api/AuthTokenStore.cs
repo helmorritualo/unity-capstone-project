@@ -10,6 +10,12 @@ public sealed class AuthTokenStore
 
     public void Save(string token)
     {
+        if (string.IsNullOrWhiteSpace(token))
+        {
+            Debug.LogWarning("Attempted to save an empty auth token.");
+            return;
+        }
+
         PlayerPrefs.SetString(TokenKey, token);
         PlayerPrefs.Save();
     }
