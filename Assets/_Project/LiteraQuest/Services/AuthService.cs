@@ -24,12 +24,12 @@ public sealed class AuthService
             request,
             result =>
             {
-                if (result.IsSuccess)
+                if (result.IsSuccess && result.Data != null)
                 {
                     tokenStore.Save(result.Data.token);
                 }
 
-                callback(result);
+                callback?.Invoke(result);
             }
         );
     }
@@ -41,18 +41,13 @@ public sealed class AuthService
             new { },
             result =>
             {
-                if (result.IsSuccess)
+                if (result.IsSuccess && result.Data != null)
                 {
                     tokenStore.Clear();
                 }
 
-                callback(result);
+                callback?.Invoke(result);
             }
         );
     }
-}
-
-public sealed class ApiMessageResponse
-{
-    public string message;
 }
