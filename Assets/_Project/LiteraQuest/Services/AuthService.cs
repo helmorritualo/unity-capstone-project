@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 
 public sealed class AuthService
@@ -14,13 +15,13 @@ public sealed class AuthService
     public IEnumerator Login(
         string lrn,
         string pin,
-        System.Action<ApiResult<StudentLoginResponse>> callback
+        Action<ApiResult<StudentLoginResponse>> callback
     )
     {
-        var request = new StudentLoginRequest(lrn, pin);
+        StudentLoginRequest request = new StudentLoginRequest(lrn, pin);
 
         yield return apiClient.Post<StudentLoginRequest, StudentLoginResponse>(
-            "/student/auth/login",
+            ApiEndpoint.StudentLogin,
             request,
             result =>
             {
@@ -34,20 +35,21 @@ public sealed class AuthService
         );
     }
 
-    public IEnumerator Logout(System.Action<ApiResult<ApiMessageResponse>> callback)
+    public IEnumerator Logout(Action<ApiResult<ApiMessageResponse>> callback)
     {
         yield return apiClient.Post<object, ApiMessageResponse>(
-            "/student/auth/logout",
+            ApiEndpoint.StudentLogout,
             new { },
             result =>
             {
-                if (result.IsSuccess && result.Data != null)
-                {
-                    tokenStore.Clear();
-                }
-
+                tokenStore.Clear();
                 callback?.Invoke(result);
             }
         );
+    }
+
+    public void ClearLocalSession()
+    {
+        tokenStore.Clear();
     }
 }

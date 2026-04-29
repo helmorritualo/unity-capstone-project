@@ -73,7 +73,7 @@ public sealed class LoginController : MonoBehaviour
             {
                 if (result.IsSuccess)
                 {
-                    GameRoot.Instance.SceneLoader.LoadScene(SceneNames.MainMenu);
+                    GameRoot.Instance.SceneLoader.LoadScene(SceneNames.Bootstrap);
                     return;
                 }
 
