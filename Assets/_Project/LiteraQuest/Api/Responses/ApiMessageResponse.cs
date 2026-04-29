@@ -1,7 +1,4 @@
-namespace LiteraQuest.Api.Responses
+public sealed class ApiMessageResponse
 {
-    public sealed class ApiMessageResponse
-    {
-        public string message;
-    }
+    public string message;
 }

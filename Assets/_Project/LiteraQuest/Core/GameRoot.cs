@@ -18,6 +18,7 @@ public sealed class GameRoot : MonoBehaviour
     public AuthTokenStore TokenStore { get; private set; }
     public JsonSerializerService JsonSerializer { get; private set; }
     public ApiClient ApiClient { get; private set; }
+    public AuthService AuthService { get; private set; }
 
     private void Awake()
     {
@@ -77,6 +78,7 @@ public sealed class GameRoot : MonoBehaviour
         if (apiConfig != null)
         {
             ApiClient = new ApiClient(apiConfig, TokenStore, JsonSerializer);
+            AuthService = new AuthService(ApiClient, TokenStore);
         }
     }
 }
