@@ -720,6 +720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameRoot
   appState: {fileID: 1716113064}
   sceneLoader: {fileID: 673180249}
+  apiConfig: {fileID: 11400000, guid: 06f12db2480edd148813e24c3078aec0, type: 2}
 --- !u!4 &906046294
 Transform:
   m_ObjectHideFlags: 0
